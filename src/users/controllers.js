@@ -11,4 +11,13 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = { signup: signup };
+const getAllUsers = async (req, res) => {
+  try {
+    const allUsers = await User.findAll();
+    res.status(201).json({ message: "success", allUsers: allUsers });
+  } catch (error) {
+    res.status(500).json({ message: error.message, error: error });
+  }
+};
+
+module.exports = { signup: signup, getAllUsers };
