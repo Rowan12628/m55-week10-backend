@@ -11,6 +11,14 @@ const signup = async (req, res) => {
   }
 };
 
+const login = async (req, res) => {
+  try {
+    res.status(201).json({ message: "success" });
+  } catch (error) {
+    res.status(500).json({ message: error.message, error: error });
+  }
+};
+
 const getAllUsers = async (req, res) => {
   try {
     const allUsers = await User.findAll();
@@ -20,4 +28,8 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-module.exports = { signup: signup, getAllUsers };
+module.exports = {
+  signup: signup,
+  login: login,
+  getAllUsers: getAllUsers,
+};
