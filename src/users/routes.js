@@ -9,7 +9,6 @@ userRouter.get("/test", async (req, res) => {
 });
 
 userRouter.post("/signup", hashPass, signup);
-//removed hashPass for login test- put back
 
 userRouter.post("/login", comparePass, login);
 
